@@ -11,7 +11,9 @@ env:
 addons:
   sonarqube:
     organization: "laurelmcintyre-github"
-
+    
+before_install:
+  - HOMEBREW_CC=gcc-4.8
 
 script:
   - clang -coverage -O0 helloworld.c -o hello
