@@ -6,7 +6,8 @@ dist: trusty
 
 env:
   matrix:
-    - DISTRO=ubuntu COVERAGE=ON
+    - DISTRO=ubuntu
+    - DISTRO=ubuntu COVERAGE=ON SONARQUBE=ON
     
 addons:
 sonarcloud:
@@ -20,3 +21,7 @@ script:
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
+
+compiler:
+  - gcc
+  - clang
