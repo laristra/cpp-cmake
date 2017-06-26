@@ -16,7 +16,6 @@ script:
   - clang -coverage -O0 helloworld.c -o hello
   - ./hello
   - gcov helloworld.c
-  - build-wrapper --out-dir bw-outputs ./build.sh
   - sonar-scanner
 
 after_success:
