@@ -6,7 +6,6 @@ dist: trusty
 
 env:
   matrix:
-    - DISTRO=ubuntu
     - DISTRO=ubuntu COVERAGE=ON
     
 addons:
