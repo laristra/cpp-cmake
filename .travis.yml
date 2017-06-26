@@ -1,4 +1,10 @@
 language: c
 
+sudo: required
+
 script:
-  - echo hello world
+  - gcc helloworld.c -o hello
+
+compiler:
+  - gcc
+  - clang
