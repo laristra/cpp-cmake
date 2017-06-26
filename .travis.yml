@@ -7,9 +7,11 @@ env:
     - DISTRO=ubuntu
     - DISTRO=ubuntu COVERAGE=ON
 
-
 script:
+  - clang -coverage -O0 helloworld.c -o hello
+  - ./hello
   - gcc helloworld.c -o hello
+  - gcov helloworld.c
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
