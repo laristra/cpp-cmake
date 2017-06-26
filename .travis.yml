@@ -20,7 +20,7 @@ script:
   - ./hello
   - gcc helloworld.c -o hello
   - gcov helloworld.c
-  - sonar-scanner
+  - sonar-scanner -X
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
