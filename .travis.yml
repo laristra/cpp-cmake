@@ -14,8 +14,10 @@ sonarcloud:
 
 script:
   - gcc helloworld.c -o hello
-  - sonar-scanner 
-
+  - coverage run helloworld.c
+  - codecov
+  - sonar-scanner
+    
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
