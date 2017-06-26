@@ -14,9 +14,7 @@ sonarcloud:
   organization: "laurelmcintyre-github"
 
 script:
-  - clang -coverage -O0 helloworld.c -o hello
-  - ./hello
-  - gcov helloworld.c
+  - gcc helloworld.c -o hello
   - sonar-scanner
 
 after_success:
