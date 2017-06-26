@@ -2,8 +2,17 @@ language: c
 
 sudo: required
 
+env:
+  matrix:
+    - DISTRO=ubuntu
+    - DISTRO=ubuntu COVERAGE=ON
+
+
 script:
   - gcc helloworld.c -o hello
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 compiler:
   - gcc
