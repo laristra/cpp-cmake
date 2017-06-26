@@ -13,7 +13,7 @@ addons:
     organization: "laurelmcintyre-github"
     
 before_install:
-  - HOMEBREW_CC=gcc-4.8
+  - HOMEBREW_CC=gcc-4.2
 
 script:
   - clang -coverage -O0 helloworld.c -o hello
