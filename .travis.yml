@@ -1,7 +1,4 @@
 language: c
 
 script:
-  - gcc helloworld.c -o hello
- 
-compiler:
-  - gcc
+  - echo hello world
