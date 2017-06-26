@@ -13,8 +13,6 @@ addons:
     organization: "laurelmcintyre-github"
 
 script:
-  - clang -coverage -O0 helloworld.c -o hello
-  - ./hello
   - gcc helloworld.c -o hello
   - sonar-scanner 
 
