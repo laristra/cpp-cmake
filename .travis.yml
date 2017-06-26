@@ -2,6 +2,8 @@ language: c
 
 sudo: required
 
+dist: trusty
+
 env:
   matrix:
     - DISTRO=ubuntu
