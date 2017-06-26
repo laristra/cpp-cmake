@@ -28,6 +28,3 @@ after_success:
 compiler:
   - gcc
   - clang
-  
-
-
