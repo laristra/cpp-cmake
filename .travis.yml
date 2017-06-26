@@ -13,11 +13,12 @@ sonarcloud:
   organization: "laurelmcintyre-github"
 
 script:
-  - gcc helloworld.c -o hello
+  - clang -coverage -O0 helloworld.c -o hello
+  - ./hello
+  - gcov helloworld.c
   - coverage run helloworld.c
-  - codecov
   - sonar-scanner
-    
+
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
