@@ -8,8 +8,8 @@ env:
     - DISTRO=ubuntu COVERAGE=ON
     
 addons:
-sonarqube:
-  organization: "laurelmcintyre-github"
+  sonarqube:
+    organization: "laurelmcintyre-github"
 
 
 script:
