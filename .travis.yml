@@ -16,8 +16,7 @@ script:
   - clang -coverage -O0 helloworld.c -o hello
   - ./hello
   - gcc helloworld.c -o hello
-  - gcov helloworld.c
-  - sonar-scanner -X
+  - sonar-scanner 
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
