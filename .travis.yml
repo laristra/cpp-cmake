@@ -1,7 +1,5 @@
 language: c
 
-sudo: required
-
 script:
   - gcc helloworld.c -o hello
  
