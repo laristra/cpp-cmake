@@ -32,7 +32,7 @@ script:
   - ${CC} --coverage -c helloworld.c -o helloworld.o
   - ${CC} --coverage helloworld.o -o helloworld
   - ./helloworld
-  
+  - make
 compiler:
   - gcc
   - clang
