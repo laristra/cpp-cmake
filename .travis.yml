@@ -26,7 +26,8 @@ addons:
       - graphviz
 
 script:
-  - gcc helloworld.c -o hello
+  - ${CC} --coverage helloworld.c -o hello
+  - ./hello
   
 after_success:
   - bash <(curl -s https://codecov.io/bash)
