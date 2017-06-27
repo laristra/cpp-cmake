@@ -1,3 +1,5 @@
+__AUTHOR__="laurelmcintyre"
+
 echo 'Setting up the script...'
 
 set -e
