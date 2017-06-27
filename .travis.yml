@@ -32,15 +32,13 @@ script:
   - ${CC} --coverage helloworld.c -o hello
   - ./hello
   
-after_success:
-  - ccache -s
-  - bash <(curl -s https://codecov.io/bash)
-
 compiler:
   - gcc
   - clang
 
 after_success:
+  - ccache -s
+  - bash <(curl -s https://codecov.io/bash)
   - cd $TRAVIS_BUILD_DIR
   - chmod +x generateDocumentationAndDeploy.sh
   - ./generateDocumentationAndDeploy.sh
