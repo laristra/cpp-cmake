@@ -4,6 +4,10 @@ sudo: required
 
 dist: trusty
 
+branches:
+  except:
+    - gh-pages
+
 env:
   global:
     - GH_REPO_NAME: c
@@ -20,13 +24,6 @@ addons:
       - doxygen-latex
       - doxygen-gui
       - graphviz
-
-deploy:
-  provider: doxygen
-  skip_cleanup: true
-  github_token: $GH_REPO_TOKEN 
-  on:
-    branch: master
 
 before_install:
   - ccache -z
