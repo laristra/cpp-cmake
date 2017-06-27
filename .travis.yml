@@ -29,8 +29,9 @@ before_install:
   - ccache -z
 
 script:
-  - ${CC} --coverage helloworld.c -o hello
-  - ./hello
+  - ${CC} --coverage -c helloworld.c -o helloworld.o
+  - ${CC} --coverage helloworld.o -o helloworld
+  - ./helloworld
   
 compiler:
   - gcc
