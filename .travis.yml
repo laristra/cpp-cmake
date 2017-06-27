@@ -32,8 +32,7 @@ addons:
 script:
   - gcc helloworld.c -o hello
   - sonar-scanner
-  - make
-
+  
 after_success:
   - bash <(curl -s https://codecov.io/bash)
 
