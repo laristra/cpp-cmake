@@ -4,18 +4,35 @@ sudo: required
 
 dist: trusty
 
+branches:
+  except:
+    - gh-pages
+
 env:
   matrix:
     - DISTRO=ubuntu
     - DISTRO=ubuntu COVERAGE=ON SONARQUBE=ON
+  global:
+    - GH_REPO_NAME: c
+    - DOXYFILE: $TRAVIS_BUILD_DIR/<path_to_your_doxygen_configuration_file>
+    - GH_REPO_REF: github.com/laurelmcintyre/c.git
+
     
 addons:
-sonarcloud:
-  organization: "laurelmcintyre-github"
+  sonarcloud:
+    organization: "laurelmcintyre-github"
+  apt:
+    packages:
+      - doxygen
+      - doxygen-doc
+      - doxygen-latex
+      - doxygen-gui
+      - graphviz
 
 script:
   - gcc helloworld.c -o hello
   - sonar-scanner
+  - make
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
@@ -23,3 +40,8 @@ after_success:
 compiler:
   - gcc
   - clang
+
+after_success:
+  - cd $TRAVIS_BUILD_DIR
+  - chmod +x generateDocumentationAndDeploy.sh
+  - ./generateDocumentationAndDeploy.sh
