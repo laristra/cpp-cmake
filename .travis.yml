@@ -28,6 +28,9 @@ addons:
 before_install:
   - ccache -z
 
+install:
+- sudo apt-get install --yes doxygen graphviz
+
 script:
   - ${CC} --coverage -c helloworld.c -o helloworld.o
   - ${CC} --coverage helloworld.o -o helloworld
@@ -44,7 +47,8 @@ after_success:
   - cd $TRAVIS_BUILD_DIR
   - chmod +x generateDocumentationAndDeploy.sh
   - ./generateDocumentationAndDeploy.sh
-
+  - ./config/publish-doxygen
+  
 cache:
   ccache: true
   directories:
