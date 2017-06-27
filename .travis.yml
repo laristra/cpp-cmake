@@ -20,7 +20,6 @@ env:
     - DOXYFILE: $TRAVIS_BUILD_DIR/DOXYFILE
     - GH_REPO_REF: github.com/laurelmcintyre/c.git
 
-    
 addons:
   sonarcloud:
     organization: "laurelmcintyre-github"
