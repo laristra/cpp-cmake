@@ -25,11 +25,15 @@ addons:
       - doxygen-gui
       - graphviz
 
+before_install:
+  - ccache -z
+
 script:
   - ${CC} --coverage helloworld.c -o hello
   - ./hello
   
 after_success:
+  - ccache -s
   - bash <(curl -s https://codecov.io/bash)
 
 compiler:
