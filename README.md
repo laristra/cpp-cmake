@@ -4,3 +4,5 @@
 [![Quality Gate](https://sonarqube.com/api/badges/gate?key=c%3Amaster)](https://sonarqube.com/dashboard?id=c%3Amaster)
 
 [Link to Doxygen documentation](https://laurelmcintyre.github.io/c/html/index.html)
+
+[Link to documentation repo](https://github.com/laurelmcintyre/documentation)
