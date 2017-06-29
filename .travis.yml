@@ -29,7 +29,7 @@ before_install:
   - ccache -z
 
 script:
-  - ${CC} --coverage -c helloworld.cpp -o helloworld
+  - g++ helloworld.cpp -o hello
   #- ${CC} --coverage helloworld.o -o helloworld
   #- ./helloworld
   - sonar-scanner
