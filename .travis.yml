@@ -30,8 +30,8 @@ before_install:
 
 script:
   - ${CC} --coverage -c helloworld.cpp -o helloworld.o
-  - ${CC} --coverage helloworld.o -o helloworld
-  - ./helloworld
+  #- ${CC} --coverage helloworld.o -o helloworld
+  #- ./helloworld
   - sonar-scanner
   - cmake --build cpp
   
