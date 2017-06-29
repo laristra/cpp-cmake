@@ -6,6 +6,6 @@ int main()
     return 0;
  }
 
-/**
- * @brief Helloworld program in c
+
+/** \brief a helloworld program in c
  */
