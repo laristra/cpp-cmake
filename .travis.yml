@@ -4,15 +4,22 @@ sudo: required
 
 dist: trusty
 
+os: linux
+
+addons:
+    apt:
+        sources:
+            - ubuntu-toolchain-r-test
+        packages:
+            - lcov
+
 branches:
-  except:
-    - gh-pages
+  only:
+    - master
 
 env:
   global:
-    - GH_REPO_NAME: cpp-cmake
-    - DOXYFILE: $TRAVIS_BUILD_DIR/DOXYFILE
-    - GH_REPO_REF: github.com/laurelmcintyre/cpp-cmake.git
+    - LANG="en_US.UTF-8"
 
 addons:
   sonarcloud:
@@ -24,26 +31,33 @@ addons:
       - doxygen-latex
       - doxygen-gui
       - graphviz
-
+      - lcov
+    sources:
+      - ubuntu-toolchain-r-test
+      
 before_install:
   - ccache -z
 
-script:
-  - sonar-scanner
-  - cmake --build cpp
+#script:
+ # - cmake --build cpp
   
 compiler:
   - g++
-  - clang
+
+script: 
+  - ./run_build.sh
+  - sonar-scanner
 
 after_success:
   - ccache -s
-  - if [ ${CC} = clang ]; then
-      bash <(curl -s https://codecov.io/bash) -F ${CC} --gcov-exec "llvm-cov gcov";
-    else
-      bash <(curl -s https://codecov.io/bash) -F ${CC};
-    fi
-  - cd $TRAVIS_BUILD_DIR
+  # Creating report
+  - cd ${TRAVIS_BUILD_DIR}
+  - lcov --directory . --capture --output-file coverage.info # capture coverage info
+  - lcov --remove coverage.info '/usr/*' --output-file coverage.info # filter out system
+  - lcov --list coverage.info #debug info
+  # Uploading report to CodeCov
+  - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
+  
   - chmod +x generateDocumentationAndDeploy.sh
   - ./generateDocumentationAndDeploy.sh
   
