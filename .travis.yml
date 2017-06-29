@@ -1,4 +1,4 @@
-language: c
+language: cpp
 
 sudo: required
 
@@ -10,9 +10,9 @@ branches:
 
 env:
   global:
-    - GH_REPO_NAME: c
+    - GH_REPO_NAME: cpp-cmake
     - DOXYFILE: $TRAVIS_BUILD_DIR/DOXYFILE
-    - GH_REPO_REF: github.com/laurelmcintyre/c.git
+    - GH_REPO_REF: github.com/laurelmcintyre/cpp-cmake.git
 
 addons:
   sonarcloud:
@@ -29,10 +29,11 @@ before_install:
   - ccache -z
 
 script:
-  - ${CC} --coverage -c helloworld.c -o helloworld.o
+  - ${CC} --coverage -c helloworld.cpp -o helloworld.o
   - ${CC} --coverage helloworld.o -o helloworld
   - ./helloworld
   - sonar-scanner
+  - cmake --build helloworld.cpp
   
 compiler:
   - gcc
