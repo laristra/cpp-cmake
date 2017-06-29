@@ -29,11 +29,11 @@ before_install:
   - ccache -z
 
 script:
-  - ${CC} --coverage -c helloworld.cpp -o helloworld.o
+  - ${CC} --coverage -c helloworld.c -o helloworld.o
   - ${CC} --coverage helloworld.o -o helloworld
   - ./helloworld
   - sonar-scanner
-  - cmake --build helloworld.cpp hello.cpp
+  - cmake --build helloworld.c hello.c
   
 compiler:
   - gcc
