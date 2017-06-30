@@ -39,10 +39,6 @@ script:
   - cmake CMakeLists.txt
   - make
   - ./cpp-cmake
-  #- g++ --coverage -c helloworld.cpp -o helloworld.o
-  #- g++ --coverage helloworld.o -o helloworld
-  #- ./helloworld
-  #- cmake --build cpp
   
 compiler:
   - g++
