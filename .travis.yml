@@ -10,9 +10,7 @@ branches:
   
 env:
   global:
-    - GH_REPO_NAME: cpp-cmake
     - DOXYFILE: $TRAVIS_BUILD_DIR/DOXYFILE
-    - GH_REPO_REF: github.com/laurelmcintyre/cpp-cmake.git
     
 addons:
   sonarcloud:
