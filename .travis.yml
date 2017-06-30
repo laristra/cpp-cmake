@@ -18,9 +18,6 @@ addons:
   sonarcloud:
     organization: "laurelmcintyre-github"
   apt:
-    sources:
-      - ubuntu-toolchain-r-test
-      - george-edison55-precise-backports
     packages:
       - doxygen
       - doxygen-doc
