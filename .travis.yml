@@ -35,13 +35,13 @@ before_install:
 
 script:
   - sonar-scanner
-  - g++ helloworld.cpp -o helloworld
+  - g++ -coverage helloworld.cpp -o helloworld
   - cmake CMakeLists.txt
   - make
   - ./cpp-cmake
-  - g++ --coverage -c helloworld.cpp -o helloworld.o
-  - g++ --coverage helloworld.o -o helloworld
-  - ./helloworld
+  #- g++ --coverage -c helloworld.cpp -o helloworld.o
+  #- g++ --coverage helloworld.o -o helloworld
+  #- ./helloworld
   #- cmake --build cpp
   
 compiler:
