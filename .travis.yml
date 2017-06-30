@@ -36,7 +36,7 @@ before_install:
 
 script:
   - sonar-scanner
-  - gcc helloworld.cpp -o helloworld
+  - g++ helloworld.cpp -o helloworld
   - cmake CMakeLists.txt
   - make
   - ./cpp-cmake
@@ -44,8 +44,9 @@ script:
   #- ${CC} --coverage helloworld.o -o helloworld
   #- ./helloworld
   #- cmake --build cpp
+  
 compiler:
-  - gcc
+  - g++
   - clang
 
 after_success:
