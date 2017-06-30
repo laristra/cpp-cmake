@@ -39,7 +39,7 @@ script:
   - gcc helloworld.cpp -o helloworld
   - cmake CMakeLists.txt
   - make
-  - ./travis_cmake_gcc_cpp11
+  - ./cpp-cmake
   #- ${CC} --coverage -c helloworld.cpp -o helloworld.o
   #- ${CC} --coverage helloworld.o -o helloworld
   #- ./helloworld
