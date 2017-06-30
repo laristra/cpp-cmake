@@ -5,7 +5,7 @@ add_executable(cpp-cmake helloworld.cpp)
 set_property(TARGET cpp-cmake PROPERTY CXX_STANDARD 11)
 set_property(TARGET cpp-cmake PROPERTY CXX_STANDARD_REQUIRED ON)
 
-option(ENABLE_COVERAGE_BUILD "Do a coverage build" OFF)
+option(ENABLE_COVERAGE_BUILD "Do a coverage build" ON)
 
 find_package(Doxygen)
 if (DOXYGEN_FOUND)
