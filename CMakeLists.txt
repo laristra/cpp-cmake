@@ -5,6 +5,8 @@ add_executable(cpp-cmake helloworld.cpp)
 set_property(TARGET cpp-cmake PROPERTY CXX_STANDARD 11)
 set_property(TARGET cpp-cmake PROPERTY CXX_STANDARD_REQUIRED ON)
 
+option(ENABLE_COVERAGE_BUILD "Do a coverage build" OFF)
+
 find_package(Doxygen)
 if (DOXYGEN_FOUND)
   add_custom_command(OUTPUT ${CMAKE_CURRENT_BINARY_DIR}/html/index.html
