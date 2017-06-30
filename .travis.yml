@@ -39,14 +39,13 @@ script:
   - cmake CMakeLists.txt
   - make
   - ./cpp-cmake
-  - ${CC} --coverage -c helloworld.cpp -o helloworld.o
-  - ${CC} --coverage helloworld.o -o helloworld
+  - g++ --coverage -c helloworld.cpp -o helloworld.o
+  - g++ --coverage helloworld.o -o helloworld
   - ./helloworld
   #- cmake --build cpp
   
 compiler:
   - g++
-  - clang
 
 after_success:
   - ccache -s
