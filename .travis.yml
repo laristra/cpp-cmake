@@ -31,6 +31,7 @@ before_install:
 script:
   - sonar-scanner
   - cmake .
+  - cmake . -DENABLE_COVERAGE_BUILD=ON
   - make
   - ./cpp-cmake
   
