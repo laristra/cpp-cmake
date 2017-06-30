@@ -18,34 +18,43 @@ addons:
   sonarcloud:
     organization: "laurelmcintyre-github"
   apt:
+    sources:
+      - ubuntu-toolchain-r-test
+      - george-edison55-precise-backports
     packages:
       - doxygen
       - doxygen-doc
       - doxygen-latex
       - doxygen-gui
       - graphviz
-
+      - cmake-data
+      - cmake
+      - lcov
+    
 before_install:
   - ccache -z
 
 script:
   - sonar-scanner
+  - gcc helloworld.cpp -o helloworld
+  - cmake CMakeLists.txt
+  - make
+  - ./travis_cmake_gcc_cpp11
   #- ${CC} --coverage -c helloworld.cpp -o helloworld.o
   #- ${CC} --coverage helloworld.o -o helloworld
   #- ./helloworld
   #- cmake --build cpp
 compiler:
-  - g++
+  - gcc
   - clang
 
 after_success:
   - ccache -s
-  - if [ ${CC} = clang ]; then
-      bash <(curl -s https://codecov.io/bash) -F ${CC} --gcov-exec "llvm-cov gcov";
-    else
-      bash <(curl -s https://codecov.io/bash) -F ${CC};
-    fi
-  - cd $TRAVIS_BUILD_DIR
+  - cd ${TRAVIS_BUILD_DIR}
+  - lcov --directory . --capture --output-file coverage.info 
+  - lcov --remove coverage.info '/usr/*' --output-file coverage.info
+  - lcov --list coverage.info 
+  - bash <(curl -s https://codecov.io/bash) || echo "Codecov did not collect coverage reports"
   - chmod +x generateDocumentationAndDeploy.sh
   - ./generateDocumentationAndDeploy.sh
   
