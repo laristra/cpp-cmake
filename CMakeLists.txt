@@ -15,3 +15,6 @@ if (DOXYGEN_FOUND)
     COMMENT "Build doxygen documentation")
   add_custom_target(html DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/html/index.html)
 endif()
+
+enable_testing()
+add_test (TestRun cpp-cmake)
