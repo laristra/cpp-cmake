@@ -30,7 +30,7 @@ before_install:
 
 script:
   - sonar-scanner
-  - cmake . -ENABLE_COVERAGE_BUILD=ON
+  - cmake . -DENABLE_COVERAGE_BUILD=ON
   - make
   - make test
   - make html
