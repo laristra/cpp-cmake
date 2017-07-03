@@ -33,7 +33,8 @@ script:
   - cmake .
   - cmake . -DENABLE_COVERAGE_BUILD=ON
   - make
-  - ./cpp-cmake
+  - make test
+  - make html
   
 compiler:
   - g++
