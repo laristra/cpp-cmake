@@ -2,9 +2,6 @@ cmake_minimum_required (VERSION 2.6)
 project (cpp-cmake)
 add_executable(cpp-cmake helloworld.cpp)
 
-set_property(TARGET cpp-cmake PROPERTY CXX_STANDARD 11)
-set_property(TARGET cpp-cmake PROPERTY CXX_STANDARD_REQUIRED ON)
-
 option(ENABLE_COVERAGE_BUILD "Do a coverage build" ON)
 if(ENABLE_COVERAGE_BUILD)
   message(STATUS "Enabling coverage build")
